@@ -5,18 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <Button
         android:id="@+id/buttonParametre"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="300dp"
         android:backgroundTint="?attr/colorPrimarySurface"
         android:text="@string/param_tres"
         android:textColor="@color/white" />
-
 
     <Button
         android:id="@+id/buttonSalaire"
@@ -36,7 +36,7 @@
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/fond"/>
+        android:background="@drawable/fond" />
 
     <TextView
         android:id="@+id/textView3"

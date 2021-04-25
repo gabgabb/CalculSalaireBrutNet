@@ -6,17 +6,36 @@ import java.util.List;
 public class DeviseData {
 
     public static ArrayList<Devise> getDevise(){
-        Devise Dollar = new Devise('$', "Dollar", 1);
-        Devise Euro = new Devise('€', "Euro", 0.8);
-        Devise Livre = new Devise('£', "Livre", 0.25);
-        Devise BitCoin = new Devise('₿', "Bitcoin", 0.00002);
+        Devise Euro = new Devise(0,'€', "Euro");
+        Devise Dollar = new Devise(1,'$', "Dollar");
+        Devise Livre = new Devise(2,'£', "Livre");
+        Devise BitCoin = new Devise(3,'₿', "Bitcoin");
 
         ArrayList<Devise> listDevise = new ArrayList<Devise>();
-        listDevise.add(Dollar);
         listDevise.add(Euro);
+        listDevise.add(Dollar);
         listDevise.add(Livre);
         listDevise.add(BitCoin);
 
         return listDevise;
+    }
+
+    public static double compareInsigne(Devise devise, Devise devise2){
+        double taux = 1;
+        if(devise.getInsigne()==devise2.getInsigne()) { taux = 1; }
+        else if (devise.getInsigne() == '€' && devise2.getInsigne() == '$') { taux = 1.21; }
+        else if (devise.getInsigne() == '€' && devise2.getInsigne() == '£') { taux=0.87; }
+        else if(devise.getInsigne() == '€' && devise2.getInsigne() == '₿') { taux = 0.00002; }
+        else if(devise.getInsigne() == '$' && devise2.getInsigne() == '€'){ taux=0.82; }
+        else if(devise.getInsigne() == '$' && devise2.getInsigne() == '£'){ taux=0.72; }
+        else if(devise.getInsigne() == '$' && devise2.getInsigne() == '₿'){ taux=0.00002; }
+        else if(devise.getInsigne() == '£' && devise2.getInsigne() == '€'){ taux=1.14; }
+        else if(devise.getInsigne() == '£' && devise2.getInsigne() == '$'){ taux=1.38; }
+        else if(devise.getInsigne() == '£' && devise2.getInsigne() == '₿'){ taux=0.00002; }
+        else if(devise.getInsigne() == '₿' && devise2.getInsigne() == '€'){ taux=41751; }
+        else if(devise.getInsigne() == '₿' && devise2.getInsigne() == '$'){ taux=50507; }
+        else if(devise.getInsigne() == '₿' && devise2.getInsigne() == '£'){ taux=36389; }
+
+        return taux;
     }
 }
