@@ -9,38 +9,85 @@
 
 
     <TextView
+        android:id="@+id/devise2"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="189dp"
+        android:layout_marginBottom="508dp"
+        android:text="Format du salaire"
+        android:textColor="#80000000"
+        android:textSize="18sp" />
+
+    <TextView
         android:id="@+id/Parametres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="144dp"
-        android:layout_marginBottom="652dp"
+        android:layout_marginBottom="673dp"
         android:text="Paramètres"
         android:textColor="#000000"
         android:textSize="24sp" />
 
     <TextView
         android:id="@+id/devise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="41dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="254dp"
-        android:layout_marginBottom="613dp"
-        android:text="Devise :"
-        android:textColor="#000000"
+        android:layout_marginEnd="302dp"
+        android:layout_marginBottom="599dp"
+        android:text="Devise"
+        android:textColor="#80000000"
         android:textSize="18sp" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner2"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="107dp"
-        android:layout_marginBottom="601dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="555dp"
         android:spinnerMode="dropdown" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        style="@android:style/Widget.Material.Light.Spinner"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="246dp"
+        android:layout_marginBottom="555dp"
+        android:spinnerMode="dropdown" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupSalaire"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="218dp"
+        android:layout_marginBottom="393dp">
+
+        <RadioButton
+            android:id="@+id/radioButtonMensuel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mensuel"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonAnnuel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Annuel"
+            android:textSize="18sp" />
+    </RadioGroup>
 
 
 </RelativeLayout>
