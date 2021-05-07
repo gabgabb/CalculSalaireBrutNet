@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,6 +29,8 @@ public class CalculerSalaireActivity extends AppCompatActivity {
     private Devise devise2;
     private double taux;
     private boolean formatMensuel;
+    private boolean switchOn;
+    private RelativeLayout background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,11 @@ public class CalculerSalaireActivity extends AppCompatActivity {
         cbHoraire=(CheckBox) findViewById(R.id.checkBoxHoraire) ;
         cbMensuel=(CheckBox) findViewById(R.id.checkBoxMensuel) ;
         cbAnnuel=(CheckBox) findViewById(R.id.checkBoxAnnuel) ;
+        background = findViewById(R.id.pageCalcul);
+
+        // couleur du fond
+        switchOn=PreferencesConfig.loadSwitchColor(this);
+        ParametresActivity.changeColor(background,switchOn);
 
         // chargement des devises de getsharedpreference
         devise = PreferencesConfig.loadDevisePref(this,1);
@@ -62,6 +71,7 @@ public class CalculerSalaireActivity extends AppCompatActivity {
         } else {
             salaire.setHint(salaire.getHint() + " annuel en " + devise.getInsigne());
         }
+        Toast.makeText(this, "Taux : " + taux, Toast.LENGTH_SHORT).show();
 
         calculSalaire.setText(calculSalaire.getText()+ " en " + devise2.getInsigne());
 
@@ -77,10 +87,6 @@ public class CalculerSalaireActivity extends AppCompatActivity {
                     affichage.setText("Veuillez entrer une valeur !");
 
                 } else {
-                    // sauvegarde des préférences des checkboxs
-                    PreferencesConfig.saveCheckBox(getApplicationContext(), cbHoraire, 1 );
-                    PreferencesConfig.saveCheckBox(getApplicationContext(), cbMensuel, 2 );
-                    PreferencesConfig.saveCheckBox(getApplicationContext(), cbAnnuel, 3 );
 
                     // différents salaires
                     double salaireMensuelBrut = Double.parseDouble(salaire.getText().toString());
@@ -134,5 +140,26 @@ public class CalculerSalaireActivity extends AppCompatActivity {
             }
         });
 
+        // sauvegarde des préférences des checkboxs
+        cbHoraire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                PreferencesConfig.saveCheckBox(getApplicationContext(), cbHoraire, 1 );
+            }
+        });
+        cbMensuel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PreferencesConfig.saveCheckBox(getApplicationContext(), cbMensuel, 2 );
+
+            }
+        });
+        cbAnnuel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PreferencesConfig.saveCheckBox(getApplicationContext(), cbAnnuel, 3 );
+            }
+        });
     }
 }

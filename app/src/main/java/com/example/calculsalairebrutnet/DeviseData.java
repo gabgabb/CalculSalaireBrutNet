@@ -6,11 +6,13 @@ import java.util.List;
 public class DeviseData {
 
     public static ArrayList<Devise> getDevise(){
+        // création des devises
         Devise Euro = new Devise(0,'€', "Euro");
         Devise Dollar = new Devise(1,'$', "Dollar");
         Devise Livre = new Devise(2,'£', "Livre");
         Devise BitCoin = new Devise(3,'₿', "Bitcoin");
 
+        // ajout des devises dans la liste
         ArrayList<Devise> listDevise = new ArrayList<Devise>();
         listDevise.add(Euro);
         listDevise.add(Dollar);
@@ -19,7 +21,7 @@ public class DeviseData {
 
         return listDevise;
     }
-
+    // changement de taux en fonction des différentes spinners
     public static double compareInsigne(Devise devise, Devise devise2){
         double taux = 1;
         if(devise.getInsigne()==devise2.getInsigne()) { taux = 1; }

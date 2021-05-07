@@ -6,12 +6,10 @@ public class Devise {
     private char insigne;
     private String nomDevise;
 
-
     public Devise(int id,char insigne, String nomDevise){
             this.id=id;
             this.insigne=insigne;
             this.nomDevise=nomDevise;
-
     }
 
     public int getId(){ return this.id;}
@@ -32,6 +30,7 @@ public class Devise {
         this.nomDevise=n;
     }
 
+    // méthode pour l'affichage dans les spinners
     @Override
     public String toString(){ return nomDevise + " " + insigne ; }
 }
