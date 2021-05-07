@@ -5,8 +5,11 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Switch;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -92,6 +95,20 @@ public class PreferencesConfig {
         }
     }
 
+    // Préférence du switch
+    public static void saveSwitchColor(Context context, CompoundButton s){
+        SharedPreferences parametres = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = parametres.edit();
+        editor.putBoolean("Switch", s.isChecked());
+        editor.apply();
+    }
+
+    public static boolean loadSwitchColor(Context context){
+        SharedPreferences parametres = PreferenceManager.getDefaultSharedPreferences(context);
+        return parametres.getBoolean("Switch", false);
+    }
+
+    // clear editor
     public static void clearEditor(Context context){
         SharedPreferences parametres = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = parametres.edit();
